@@ -6,6 +6,8 @@ public class FlashLight : MonoBehaviour
 {
     public GameObject flashLight;
 
+    public AudioSource turnOn;
+    public AudioSource turnOff;
 
     public bool on;
     public bool off;
@@ -21,12 +23,14 @@ public class FlashLight : MonoBehaviour
         if (off && Input.GetButtonDown("F"))
         {
             flashLight.SetActive(true);
+            turnOn.Play();
             off = false;
             on = true;
         }
         else if (on && Input.GetButtonDown("F"))
         {
             flashLight.SetActive(false);
+            turnOff.Play();
             off = true;
             on = false;
         }
