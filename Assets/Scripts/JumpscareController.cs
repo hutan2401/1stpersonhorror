@@ -7,6 +7,7 @@ public class JumpscareController : MonoBehaviour
     [SerializeField] private Animator jumpscareAnim;
     //public AudioClip jumpscareClip;
     [SerializeField] private AudioSource jumpsource;
+    [SerializeField] private GameObject jumpscareTrigger;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,6 +15,12 @@ public class JumpscareController : MonoBehaviour
         {
             jumpscareAnim.Play("jumpscare");
             jumpsource.Play();
+            StartCoroutine(CloseJumpscare());
         }
+    }
+    private IEnumerator CloseJumpscare()
+    {
+        yield return new WaitForSeconds(2);
+        jumpscareTrigger.SetActive(false );
     }
 }
