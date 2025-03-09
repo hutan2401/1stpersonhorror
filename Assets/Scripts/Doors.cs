@@ -15,7 +15,7 @@ public class Doors : MonoBehaviour
     {
         inReach = false;
     }
-    private void OnTriggerEnter(Collider other)
+     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -24,7 +24,7 @@ public class Doors : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -39,7 +39,7 @@ public class Doors : MonoBehaviour
         {
             DoorOpens();
         }
-        else if (inReach && Input.GetKeyDown(KeyCode.E))
+        else
         {
             DoorCloses();
         }
@@ -48,14 +48,14 @@ public class Doors : MonoBehaviour
 
     void DoorOpens()
     {
-        door.SetBool("open", true);
-        door.SetBool("closed", false);
+        door.SetBool("Open", false);
+        door.SetBool("Closed", true);
         doorSound.Play();
     }
     void DoorCloses()
     {
-        door.SetBool("open", false);
-        door.SetBool("closed", true);
+        door.SetBool("Open", true);
+        door.SetBool("Closed", false);
         doorSound.Play();
     }
    
