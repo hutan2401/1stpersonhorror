@@ -34,7 +34,7 @@ public class OpenKeypad : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.T))
         {
             keypadOB.SetActive(true);
         }

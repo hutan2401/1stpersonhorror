@@ -6,12 +6,13 @@ public class ReadNotes : MonoBehaviour
 {
     public GameObject player;
     public GameObject noteUI;
+    public GameObject Cube;
     
-    public GameObject inv;
+    //public GameObject inv;
 
     public GameObject pickUpText;
 
-    public AudioSource pickUpSound;
+    //public AudioSource pickUpSound;
 
     public bool inReach;
 
@@ -19,7 +20,7 @@ public class ReadNotes : MonoBehaviour
     {
         noteUI.SetActive(false);
         
-        inv.SetActive(true);
+        //inv.SetActive(true);
         pickUpText.SetActive(false);
 
         inReach = false;
@@ -49,11 +50,12 @@ public class ReadNotes : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.R) && inReach)
         {
             noteUI.SetActive(true);
-            pickUpSound.Play();
+            //pickUpSound.Play();
 
-            inv.SetActive(false);
+            //inv.SetActive(false);
             //player.GetComponent<MovementController>().enabled = false;
             player.GetComponent<CameraController>().enabled = false;
+            Cube.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
         }
 
@@ -65,9 +67,10 @@ public class ReadNotes : MonoBehaviour
         
             noteUI.SetActive(false);
 
-            inv.SetActive(false);
+            //inv.SetActive(false);
             //player.GetComponent<MovementController>().enabled = true;
             player.GetComponent<CameraController>().enabled = true;
+        Cube.SetActive(true);
         
         
     }
